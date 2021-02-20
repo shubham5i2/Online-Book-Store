@@ -9,6 +9,9 @@ const app = express();
 //setting up PORT number from environment variables
 const PORT = process.env.PORT || 3300;
 
+//assets
+app.use(express.static("public"));
+
 //routes
 app.get("/", (req, res) => {
   res.render("home");
