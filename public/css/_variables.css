@@ -1,8 +1,12 @@
 :root {
-    --primary: #fe5f1e;
-    --primary-hover: #b23301;
-    --secondary: #f8f8f8;
-    --pure: #fff;
-    --dark: #232323;
-    --gray: #ccc;
-  }
+  /* color properties */
+  --primary: #1e92fe;
+  --primary-hover: #1472be;
+  --secondary: #f8f8f8;
+  --pure: #fff;
+  --dark: #232323;
+  --gray: #ccc;
+
+  /* transition */
+  --smooth: all 0.2s ease-in-out;
+}

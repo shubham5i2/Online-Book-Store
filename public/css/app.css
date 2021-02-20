@@ -1,7 +1,54 @@
-@import "_variables.css"; 
+@import "_variables.css";
 
-body{
-    font-family: "Lato", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    color: var(--dark);
+body {
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--dark);
+}
+
+nav li {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+nav li:last-child a {
+  background: var(--primary);
+}
+
+nav li:last-child a:hover {
+  background: var(--primary-hover);
+}
+
+nav li a:hover {
+  transition: var(--smooth);
+  color: var(--primary);
+}
+
+.hero .hero-image {
+  animation: up-down 3s infinite alternate;
+}
+
+@keyframes up-down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(50px);
+  }
+}
+
+.category {
+  background: var(--secondary);
+}
+
+.add-to-cart {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.add-to-cart:hover {
+  background: var(--primary);
+  border-color: var(--pure);
+  color: var(--pure);
+  transition: var(--smooth);
 }
