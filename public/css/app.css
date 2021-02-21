@@ -52,3 +52,36 @@ nav li a:hover {
   color: var(--pure);
   transition: var(--smooth);
 }
+
+.btn-primary {
+  background: var(--primary);
+  outline: none;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transition: var(--smooth);
+}
+
+section.cart {
+  min-height: calc(100vh - 86px);
+  background: var(--secondary);
+}
+
+section.cart .amount {
+  color: var(--primary);
+}
+
+section.login {
+  background: var(--secondary);
+  min-height: calc(100vh - 86px);
+}
+
+section.login a{
+    color: var(--primary);
+}
+
+section.login a:hover{
+    color: var(--primary-hover);
+    transition: var(--smooth);
+}
