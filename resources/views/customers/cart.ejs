@@ -40,7 +40,7 @@
     <div class="text-right py-4">
       <div>
         <span class="text-lg font-bold">Total Amount: </span>
-        <span class="amount text-2xl font-bold ml-2">$250</span>
+        <span class="amount text-2xl font-bold ml-2">$500</span>
       </div>
       <div>
         <form class="mt-10" action="">
@@ -48,40 +48,42 @@
             class="border border-gray-300 p-2 w-1/2 mb-4"
             type="text"
             placeholder="Phone number"
+            required
           />
           <input
             class="border border-gray-300 p-2 w-1/2"
             type="text"
             placeholder="Address"
+            required
           />
           <div>
-            <button
-              class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6"
+            <!-- <button
+              class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6 focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Order Now
-            </button>
+            </button> -->
           </div>
         </form>
       </div>
-      <!-- <a
+      <a
         href=""
         class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6"
         >Login to order</a
-      > -->
+      >
     </div>
   </div>
 
-  <!-- <div class="empty-cart py-10">
+  <!-- <div class="empty-cart py-6">
     <div class="container mx-auto text-center">
       <h1 class="text-3xl font-bold mb-2">Cart Empty 😢</h1>
       <p class="text-gray-500 text-lg mb-12">
-        You probably haven't ordered a book yet. To order s book, go to main
+        You probably haven't ordered a book yet. To order books, go to main
         page.
       </p>
       <img
         draggable="false"
-        class="w-2/5 h-96 mx-auto"
+        class="w-2/5 h-80 mx-auto"
         src="/img/empty-cart.png"
         alt="empty-cart"
       />
