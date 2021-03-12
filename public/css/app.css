@@ -53,6 +53,10 @@ nav li a:hover {
   transition: var(--smooth);
 }
 
+.add-to-cart:focus{
+  outline: none;
+}
+
 .btn-primary {
   background: var(--primary);
   outline: none;

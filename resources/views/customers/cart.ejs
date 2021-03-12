@@ -1,4 +1,5 @@
 <section class="cart py-16">
+  <% if(session.cart) { %>
   <div class="order container mx-auto w-1/2">
     <div class="flex items-center border-b border-gray-300 pb-4">
       <img draggable="false" src="/img/cart-black.png" alt="cart" />
@@ -6,41 +7,32 @@
     </div>
 
     <div class="book-list">
+      <% for(let book of Object.values(session.cart.items)) { %>
       <div class="flex items-center my-8">
         <img
           class="w-24"
           draggable="false"
-          src="/img/book.jpg"
+          src="/img/<%= book.item.image %>"
           alt="book-image"
         />
         <div class="flex-1 ml-4">
-          <h1>Monk who sold ferrari!</h1>
-          <span>NOVEL</span>
+          <h1><%= book.item.name %></h1>
+          <span><%= book.item.category %></span>
         </div>
-        <span class="flex-1">1 Pcs</span>
-        <span class="font-bold text-lg">$250</span>
+        <span class="flex-1"><%= book.qty %> Pcs</span>
+        <span class="font-bold text-lg"
+          >$<%= book.item.price * book.qty %></span
+        >
       </div>
-
-      <div class="flex items-center my-8">
-        <img
-          class="w-24"
-          draggable="false"
-          src="/img/book.jpg"
-          alt="book-image"
-        />
-        <div class="flex-1 ml-4">
-          <h1>Monk who sold ferrari!</h1>
-          <span>NOVEL</span>
-        </div>
-        <span class="flex-1">1 Pcs</span>
-        <span class="font-bold text-lg">$250</span>
-      </div>
+      <% } %>
     </div>
     <hr />
     <div class="text-right py-4">
       <div>
         <span class="text-lg font-bold">Total Amount: </span>
-        <span class="amount text-2xl font-bold ml-2">$500</span>
+        <span class="amount text-2xl font-bold ml-2"
+          >$<%= session.cart.totalPrice %></span
+        >
       </div>
       <div>
         <form class="mt-10" action="">
@@ -67,18 +59,18 @@
         </form>
       </div>
       <a
-        href=""
+        href="/login"
         class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6"
         >Login to order</a
       >
     </div>
   </div>
-
-  <!-- <div class="empty-cart py-6">
+  <% } else { %>
+  <div class="empty-cart py-6">
     <div class="container mx-auto text-center">
       <h1 class="text-3xl font-bold mb-2">Cart Empty 😢</h1>
       <p class="text-gray-500 text-lg mb-12">
-        You probably haven't ordered a book yet. To order books, go to main
+        You probably haven't ordered any book yet. To order books, go back to main
         page.
       </p>
       <img
@@ -93,5 +85,6 @@
         >Go back</a
       >
     </div>
-  </div> -->
+  </div>
+  <% } %>
 </section>
