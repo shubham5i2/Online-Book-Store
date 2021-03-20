@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const flash = require("express-flash");
 const MongoStore = require("connect-mongo").default;
+const passport = require("passport");
 
 //intializing express app
 const app = express();
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 3300;
 
 //Dataase connection
 const url =
-  "mongodb+srv://shubham2306:BsGEzW1zjwgsmuqZ@onlinebookstorecluster.4dmiz.mongodb.net/books?retryWrites=true&w=majority";
+  "mongodb+srv://shubham2306:j74l2ihdQu8IHgg2@onlinebookstorecluster.4dmiz.mongodb.net/books?retryWrites=true&w=majority";
 mongoose.connect(url, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -45,16 +46,24 @@ app.use(
   })
 );
 
+//passport config
+const passportInit = require("./app/config/passport");
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 //configure express flash
 app.use(flash());
 
 //assets
 app.use(express.static("public"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-//global moddleware to avail session variable across the application
+//global moddleware to avail session and user variable across the application
 app.use((req, res, next) => {
   res.locals.session = req.session;
+  res.locals.user = req.user;
   next();
 });
 

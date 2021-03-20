@@ -89,3 +89,7 @@ section.login a:hover {
   color: var(--primary-hover);
   transition: var(--smooth);
 }
+
+a.link{
+  color: var(--primary);
+}

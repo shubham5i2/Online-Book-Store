@@ -1,4 +1,4 @@
-// import axios from "axios";
+import { initAdmin } from "./admin.js";
 
 const addToCart = document.querySelectorAll(".add-to-cart");
 let cartCounter = document.querySelector("#cartCounter");
@@ -16,3 +16,13 @@ addToCart.forEach((btn) => {
     // console.log(book);
   });
 });
+
+// Remove alert message after X seconds
+const alertMsg = document.querySelector("#success-alert");
+if (alertMsg) {
+  setTimeout(() => {
+    alertMsg.remove();
+  }, 3000);
+}
+
+initAdmin();

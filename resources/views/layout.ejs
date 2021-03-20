@@ -18,22 +18,34 @@
     <link rel="stylesheet" href="/css/app.css" />
   </head>
   <body>
-    <nav class="container mx-auto flex items-center justify-between">
-      <div class="flex items-center font-bold">
-        <img
-          draggable="false"
-          class="h-20 w-20"
-          src="/img/logo.jpg"
-          alt="logo"
-        />
-        <h3>Voowler</h3>
+    <nav class="container mx-auto flex items-center justify-between py-2">
+      <div>
+        <a href="/" class="flex items-center font-bold">
+          <img
+            draggable="false"
+            class="h-20 w-20"
+            src="/img/logo.jpg"
+            alt="logo"
+          />
+          <h3>Voowler</h3>
+        </a>
       </div>
       <div>
         <ul class="flex items-center">
-          <li class="ml-6"><a href="#">Menu</a></li>
+          <li class="ml-6"><a href="/">Menu</a></li>
           <li class="ml-6"><a href="#">Offers</a></li>
+          <% if(user) { %>
+          <li class="ml-6">
+            <form id="logout" action="/logout" method="POST">
+              <a onclick="document.getElementById('logout').submit()" href="#"
+                >Logout</a
+              >
+            </form>
+          </li>
+          <% } else { %>
           <li class="ml-6"><a href="/register">Register</a></li>
           <li class="ml-6"><a href="/login">Login</a></li>
+          <% } %>
           <li class="ml-6">
             <a
               href="/cart"
@@ -53,5 +65,6 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script type="module" src="/js/app.js"></script>
+    <script type="module" src="/js/admin.js"></script>
   </body>
 </html>
